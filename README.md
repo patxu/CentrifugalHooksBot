@@ -1,19 +1,15 @@
 # CentrifugalHooksBot
 A Slack bot for the CentrifugalHooks Slack team.
 
-## Contributing
-- ### Clone, branch, pull request
+## Architecture at a glance
+  - [Node.js](https://nodejs.org/en/) + [Express.js](http://expressjs.com/)
+  - runs on [Heroku](http://heroku.com)
 
 ## Features
 An overview of what the bot can do:
 - ### Onboarding
   - welcome new users to the team by sending them a DM
   - contains startup info, like setting the profile picture
-
-## Architecture at a glance
-
-  - [Node.js](https://nodejs.org/en/) + [Express.js](http://expressjs.com/)
-  - runs on [Heroku](http://heroku.com)
 
 ## Contributing
 - ### Clone, branch, pull request
