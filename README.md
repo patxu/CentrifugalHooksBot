@@ -1,5 +1,5 @@
 # CentrifugalHooksBot
-A Slack bot for the CentrifugalHooks Slack team.
+A Slack bot for the CentrifugalHooks Slack team. Take a look at the [guide](https://github.com/dali-lab/dev-resources/blob/slack/slack_bot.md) for details on how this was set up.
 
 ## Features
 An overview of what the bot can do:
@@ -25,6 +25,6 @@ An overview of what the bot can do:
   1. get the API token
     - if you are part of the team you can [check yourself](https://centrifugal-hooks.slack.com/services/B1996SDM2)
     - if you are not part of the team get an API token from a current developer
-  2. set environment variables (for local testing)
+  1. set environment variables (for local testing)
     - export each environment variable (e.g. `export SLACK_BOT_TOKEN="XXXX"`)
     `SLACK_BOT_TOKEN`
