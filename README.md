@@ -1,0 +1,2 @@
+# CentrifugalHooksBot
+Slack bot
