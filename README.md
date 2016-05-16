@@ -2,7 +2,6 @@
 A Slack bot for the CentrifugalHooks Slack team.
 
 ## Features
-An overview of what the bot can do:
 - ### Onboarding
   - welcome new users to the team by sending them a DM
   - contains startup info, like setting the profile picture
