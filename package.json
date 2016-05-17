@@ -1,0 +1,17 @@
+{
+  "name": "CentrifugalHooksBot",
+  "version": "0.0.0",
+  "description": "CentrifugalHooks Slack bot",
+  "main": "web.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git@heroku.com:centrifugal-hooks-bot.git "
+  },
+  "author": "Pat Xu",
+  "license": "ISC",
+  "dependencies": {
+    "@slack/client": "^3.1.0",
+    "express": "^4.13.4",
+  }
+}
