@@ -3,7 +3,7 @@ A Slack bot for the CentrifugalHooks Slack team. Take a look at the [guide](http
 
 ## Features
 An overview of what the bot can do:
-* ### Onboarding
+- ### Onboarding
   - welcome new users to the team by sending them a DM
   - contains startup info, like setting the profile picture
 
@@ -28,3 +28,7 @@ An overview of what the bot can do:
   1. set environment variables (for local testing)
     - export each environment variable (e.g. `export SLACK_BOT_TOKEN="XXXX"`)
     `SLACK_BOT_TOKEN`
+
+- Resources
+  - [node-slack-client](https://github.com/slackhq/node-slack-client)
+  - [Slack API](https://api.slack.com/), particularly the [events](https://api.slack.com/events)
