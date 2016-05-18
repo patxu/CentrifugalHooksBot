@@ -1,5 +1,5 @@
 # Centrifugal Hooks Bot
-A Slack bot for the CentrifugalHooks Slack team. Take a look at the [guide](https://github.com/dali-lab/dev-resources/blob/slack/slack_bot.md)(work in progress) for details on how this was set up.
+A Slack bot for the CentrifugalHooks Slack team. Take a look at the [guide](https://github.com/dali-lab/dev-resources/blob/slack/slack_bot.md) (work in progress) for details on how this was set up.
 
 ## Features
 An overview of what the bot can do:
