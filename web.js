@@ -99,6 +99,10 @@ slack.on(RTM_EVENTS.TEAM_JOIN, function onTeamJoin(team_join) {
   slack.sendMessage('Hey ' + user.name + ', welcome to the Centrifugal Hooks channel! How are you doing? I\'m your friendly neighborhood brood leader and I\'m excited you\'re here! You can chat me but I can\'t do much yet– I\'m working on it... In the meantime, head over to ' + general + ' and say hi! Also go ahead and update your profile picture to your favorite icon from http://eu.battle.net/sc2/en/game/unit/ Happy kiting!', dm.id);
 });
 
+app.get('/', function(req, res) {
+  res.send('hi!');
+});
+
 //sets up app
 var port = Number(process.env.PORT || 5000);
 app.listen(port, function() {
