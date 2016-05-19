@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "description": "CentrifugalHooks Slack bot",
   "main": "web.js",
-  "scripts": {},
+  "scripts": {
+    "refresh": "curl http://centrifugal-hooks-bot.herokuapp.com/"
+  },
   "repository": {
     "type": "git",
     "url": "git@heroku.com:centrifugal-hooks-bot.git "
