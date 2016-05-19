@@ -2,10 +2,11 @@
 
 console.log('Centrifugal Hooks bot starting up');
 
-// import modules
+// import packages
 var port = process.env.PORT || 5000;
 var express = require('express');
 var app = express();
+require('newrelic');
 var slackClient = require('@slack/client').RtmClient; // real-time messaging
 var CLIENT_EVENTS = require('@slack/client').CLIENT_EVENTS;
 var RTM_EVENTS = require('@slack/client').RTM_EVENTS;
