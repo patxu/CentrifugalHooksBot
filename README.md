@@ -1,5 +1,5 @@
 # Centrifugal Hooks Bot
-A Slack bot for the CentrifugalHooks Slack team. Take a look at the [guide](https://github.com/dali-lab/dev-resources/blob/slack/slack_bot.md) (work in progress) for details on how this was set up.
+A Slack bot for the CentrifugalHooks Slack team. There is a [guide](https://github.com/dali-lab/dev-resources/blob/slack/slack_bot.md) (work in progress) that explains how this was set up.
 
 ## Features
 An overview of what the bot can do:
@@ -27,6 +27,7 @@ An overview of what the bot can do:
     - export each environment variable (e.g. `export SLACK_BOT_TOKEN="XXXX"`)
     `SLACK_BOT_TOKEN`
 
-- Resources
+- ### Resources
   - [node-slack-client](https://github.com/slackhq/node-slack-client)
   - [Slack API](https://api.slack.com/), particularly the [events](https://api.slack.com/events)
+  - my [guide]((https://github.com/dali-lab/dev-resources/blob/slack/slack_bot.md)
