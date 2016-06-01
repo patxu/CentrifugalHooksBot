@@ -83,17 +83,14 @@ slack.on(RTM_EVENTS.MESSAGE, function(message){
 
   console.log('received %s from channel %s, user %s', text, channel.name, user.name);
   console.log('channel %s', message.channel);
-  var dm = slack.dataStore.getDMById(message.channel);
-  console.log(JSON.stringify(dm));
   console.log(JSON.stringify(channel));
 
 
   // dm
-  // if (user.name == channel.name) {
-  //   // dm so get the user from the channel id
-  //   var dm = slack.dataStore.getDMByName(user.name);
-  //   slack.sendMessage('Hi ' + user.name + "!", dm.id);
-  // }
+  if (channel.name.is_im) {
+    // dm so get the user from the channel id
+    slack.sendMessage('Hi ' + user.name + "!", channel.id);
+  }
 });
 
 
