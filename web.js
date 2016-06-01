@@ -6,6 +6,9 @@ console.log('Centrifugal Hooks bot starting up');
 var port = process.env.PORT || 5000;
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
+app.use(bodyParser.json()); // to support JSON-encoded bodies
+
 var slackClient = require('@slack/client').RtmClient; // real-time messaging
 var CLIENT_EVENTS = require('@slack/client').CLIENT_EVENTS;
 var RTM_EVENTS = require('@slack/client').RTM_EVENTS;
@@ -80,15 +83,17 @@ slack.on(RTM_EVENTS.MESSAGE, function(message){
 
   console.log('received %s from channel %s, user %s', text, channel.name, user.name);
   console.log('channel %s', message.channel);
-  console.log('dm %s', slack.dataStore.getDMById(message.channel));
+  var dm = slack.dataStore.getDMById(message.channel);
+  console.log(JSON.stringify(dm));
+  console.log(JSON.stringify(channel));
 
 
   // dm
-  if (user.name == channel.name) {
-    // dm so get the user from the channel id
-    var dm = slack.dataStore.getDMByName(user.name);
-    slack.sendMessage('Hi ' + user.name + "!", dm.id);
-  }
+  // if (user.name == channel.name) {
+  //   // dm so get the user from the channel id
+  //   var dm = slack.dataStore.getDMByName(user.name);
+  //   slack.sendMessage('Hi ' + user.name + "!", dm.id);
+  // }
 });
 
 
