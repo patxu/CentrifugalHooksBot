@@ -82,7 +82,7 @@ slack.on(RTM_EVENTS.MESSAGE, function(message){
   console.log('received %s', text);
 
   if (user.name == channel.name) {
-    slack.sendMessage('Hi ' + user.name + "!", channel.id);
+    slack.sendMessage('Hi ' + user.name + "!", channel);
   }
 });
 
