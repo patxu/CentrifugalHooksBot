@@ -79,11 +79,12 @@ slack.on(RTM_EVENTS.MESSAGE, function(message){
       time = message.ts,
       text = message.text ? message.text : "",
       response = '';
-  console.log('received %s from %d', text, user);
+  console.log('received %s from channel %d', text, channel);
 
-  user = slack.dataStore.getUserById(user);
 
   if (user.name == channel.name) {
+    // dm so get the user from the channel id
+    user = slack.dataStore.getUserById(channel);
     slack.sendMessage('Hi ' + user.name + "!", channel);
   }
 });
