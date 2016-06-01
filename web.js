@@ -80,7 +80,10 @@ slack.on(RTM_EVENTS.MESSAGE, function(message){
       text = message.text ? message.text : "",
       response = '';
   console.log('received %s', text);
-  // slack.sendMessage('Hi ' + user.name + "!", channel.id);
+
+  if (user.name == channel.name) {
+    slack.sendMessage('Hi ' + user.name + "!", channel.id);
+  }
 });
 
 
