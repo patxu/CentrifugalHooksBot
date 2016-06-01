@@ -79,7 +79,7 @@ slack.on(RTM_EVENTS.MESSAGE, function(message){
       time = message.ts,
       text = message.text ? message.text : "",
       response = '';
-  console.log('received %s', text);
+  console.log('received %s from %d', text, user);
 
   user = slack.dataStore.getUserById(user);
 
