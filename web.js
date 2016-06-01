@@ -81,10 +81,7 @@ slack.on(RTM_EVENTS.MESSAGE, function(message){
       user = slack.dataStore.getUserById(message.user),
       text = message.text ? message.text : "";
 
-  console.log('received %s from channel %s, user %s', text, channel.name, user.name);
-  console.log('channel %s', message.channel);
-  console.log(JSON.stringify(channel));
-
+  console.log('received %s from channel %s, user %s', text, channel.name ? channel.name : 'dm', user.name);
 
   // dm
   if (channel.is_im) {
