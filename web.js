@@ -79,6 +79,8 @@ slack.on(RTM_EVENTS.MESSAGE, function(message){
       text = message.text ? message.text : "";
 
   console.log('received %s from channel %s, user %s', text, channel.name, user.name);
+  console.log('channel %s', message.channel);
+
 
   // dm
   if (user.name == channel.name) {
