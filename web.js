@@ -80,6 +80,7 @@ slack.on(RTM_EVENTS.MESSAGE, function(message){
 
   console.log('received %s from channel %s, user %s', text, channel.name, user.name);
   console.log('channel %s', message.channel);
+  console.log('dm %s', slack.dataStore.getDMById(message.channel));
 
 
   // dm
