@@ -56,6 +56,7 @@ slack.on(CLIENT_EVENTS.RTM.RTM_CONNECTION_OPENED, function() {
   console.log('Channels: %s', channels.join(', '));
 
 
+  // get the channel id of #general, if possible
   general = slack.dataStore.getChannelByName('general');
   if (general !== null) {
     general = '<#' + general.id + '>';
@@ -79,6 +80,7 @@ slack.on(RTM_EVENTS.MESSAGE, function(message){
       text = message.text ? message.text : "",
       response = '';
   console.log('received %s', text);
+  // slack.sendMessage('Hi ' + user.name + "!", channel.id);
 });
 
 
@@ -88,7 +90,6 @@ slack.on(RTM_EVENTS.MESSAGE, function(message){
   * @param  {type} team_join description
   * @returns {type} description
   */
-
 slack.on(RTM_EVENTS.TEAM_JOIN, function onTeamJoin(team_join) {
   var user = slack.dataStore.getUserById(team_join.user.id);
   console.log('%s just joined the team!', user.name);
@@ -96,6 +97,10 @@ slack.on(RTM_EVENTS.TEAM_JOIN, function onTeamJoin(team_join) {
   var dm = slack.dataStore.getDMByName(user.name);
 
   slack.sendMessage('Hey ' + user.name + ', welcome to the Centrifugal Hooks channel! How are you doing? I\'m your friendly neighborhood brood leader and I\'m excited you\'re here! You can chat me but I can\'t do much yet– I\'m working on it... In the meantime, head over to ' + general + ' and say hi! Also go ahead and update your profile picture to your favorite icon from http://eu.battle.net/sc2/en/game/unit/ Happy kiting!', dm.id);
+});
+
+app.get('/', function(req, res) {
+  res.send('hi!');
 });
 
 //sets up app
