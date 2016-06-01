@@ -87,7 +87,7 @@ slack.on(RTM_EVENTS.MESSAGE, function(message){
 
 
   // dm
-  if (channel.name.is_im) {
+  if (channel.is_im) {
     // dm so get the user from the channel id
     slack.sendMessage('Hi ' + user.name + "!", channel.id);
   }
