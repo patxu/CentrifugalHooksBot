@@ -81,6 +81,8 @@ slack.on(RTM_EVENTS.MESSAGE, function(message){
       response = '';
   console.log('received %s', text);
 
+  user = slack.dataStore.getUserById(user);
+
   if (user.name == channel.name) {
     slack.sendMessage('Hi ' + user.name + "!", channel);
   }
