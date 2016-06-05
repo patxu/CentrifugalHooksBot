@@ -9,14 +9,15 @@ var app = express();
 var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // to support JSON-encoded bodies
 
-var slackClient = require('@slack/client').RtmClient; // real-time messaging
+var SlackClient = require('@slack/client').RtmClient; // real-time messaging
+var WebClient = require('@slack/client').WebClient; // web client sends methods
 var CLIENT_EVENTS = require('@slack/client').CLIENT_EVENTS;
 var RTM_EVENTS = require('@slack/client').RTM_EVENTS;
 var MemoryDataStore = require('@slack/client').MemoryDataStore;
 
 // setup Slack client
 var token = process.env.SLACK_BOT_TOKEN;
-var slack = new slackClient(token, {
+var slack = new SlackClient(token, {
   logLevel: 'error',
   // Initialise a data store for our client, this will load additional helper functions for the storing and retrieval of data
   dataStore: new MemoryDataStore(),
@@ -26,6 +27,8 @@ var slack = new slackClient(token, {
   autoMark: true
 });
 slack.start();
+
+var web = new WebClient(token);
 
 var general; // #general channel
 
@@ -101,9 +104,13 @@ slack.on(RTM_EVENTS.TEAM_JOIN, function onTeamJoin(team_join) {
   var user = slack.dataStore.getUserById(team_join.user.id);
   console.log('%s just joined the team!', user.name);
 
-  var dm = slack.dataStore.getDMByName(user.name);
-
-  slack.sendMessage('Hey ' + user.name + ', welcome to the Centrifugal Hooks channel! How are you doing? I\'m your friendly neighborhood brood leader and I\'m excited you\'re here! You can chat me but I can\'t do much yet– I\'m working on it... In the meantime, head over to ' + general + ' and say hi! Also go ahead and update your profile picture to your favorite icon from http://eu.battle.net/sc2/en/game/unit/ Happy kiting!', dm.id);
+  webClient.im.open(user.id, function(err, resp) {
+    if (!err) {
+      slack.sendMessage('Hey ' + user.name + ', welcome to the Centrifugal Hooks channel! How are you doing? I\'m your friendly neighborhood brood leader and I\'m excited you\'re here! You can chat me but I can\'t do much yet– I\'m working on it... In the meantime, head over to ' + general + ' and say hi! Also go ahead and update your profile picture to your favorite icon from http://eu.battle.net/sc2/en/game/unit/ Happy kiting!', resp.channel.id);
+    } else {
+      console.log('Error on DM open: ' + err );
+    }
+  });
 });
 
 app.get('/', function(req, res) {
